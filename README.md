@@ -1,3 +1,3 @@
 # VirtualMemorySimulator
 Collaborators:
-# Luis Felipe Alvarez Sanchez
+- Luis Felipe Alvarez Sanchez
