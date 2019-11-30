@@ -6,6 +6,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "../Headers/Process.h"
 using namespace std;
 
 class Util{
@@ -13,6 +14,9 @@ class Util{
     private:
        int option; //option is used to set an option in the menu
        bool isTerminated = false; //determines if the app isTerminated
+
+       vector<Process> processes;
+
     public:
     /*
         start method:
@@ -53,8 +57,9 @@ class Util{
         Files flag;
         ifstream file;
         int del;
-        vector<int> bytes;
-        vector<int> process;
+
+      //  vector<int> bytes;
+        //vector<int> process;
         string archivo, line;
         cout << "Dame un archivo" << endl;
         cin >> archivo;
@@ -69,27 +74,23 @@ class Util{
         // *hace falta realizar verificacion de que lo que se mete al vector es realmente un numero entero
         // *para prevenir fallas
         while(getline(file, line) ) {
+            Process process;
             if(line.find("P") != std::string::npos) {
                 del = line.find("P");
             }
             line.erase(0,del+2);
-            bytes.push_back(stoi(line));
+            process.setBytes(stoi(line));
             if(line.find(" ") != std::string::npos) {
                 del = line.find(" ");
             }
             line.erase(0, del+1);
-            process.push_back(stoi(line));
+            process.setProcess(stoi(line));
+
+            processes.push_back(process);
         }
-        // For testing purposes
-        // imprime los bytes
-        cout << "bytes" << endl;
-        for(auto i : bytes) {
-            cout << i << endl;
-        }
-        // imprime los procesos
-        cout << "process" << endl;
-        for(auto i : process) {
-            cout << i << endl;
-        }
+      
+      for(int i = 0; i < processes.size();i++){
+          cout << processes[i].getProcess() << "\n";
+      }
     };
 };
