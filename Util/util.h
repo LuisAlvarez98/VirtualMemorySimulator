@@ -9,10 +9,46 @@
 using namespace std;
 
 class Util{
+    //instance variables
     private:
-    ///
+       int option; //option is used to set an option in the menu
+       bool isTerminated = false; //determines if the app isTerminated
     public:
+    /*
+        start method:
+        runs the main menu
+    */
+    void start(){
+       //Runs the menu until the user types any option 
+       while(!isTerminated){
+           cout << "Please select an option of the menu: " << endl;
+           cout << "[1] FIFO" << endl;
+           cout << "[2] LRU" << endl;
+           cout << "[3] FIFO and LRU algorithms" << endl;
+           cout << "[4] Exit" << endl;
 
+           cin >> option;
+           switch(option){
+               case 1:
+                //runFifo();
+               readFile();
+               break;   
+               case 2:
+               //runLRU();
+               break;   
+               case 3:
+               //runBoth();
+               //run
+               break;              
+               case 4:
+                isTerminated = true;
+                break;
+           }
+       }
+    }
+    /*
+     Read file method
+    */
     int readFile(){
         Files flag;
         ifstream file;
