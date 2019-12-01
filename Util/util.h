@@ -371,45 +371,21 @@ public:
             //Add process
             case 'P':
                 file >> iN >> iP;
-                if (option == 1)
-                {
-                }
-                else if (option == 2)
-                {
-                    caseP(iN, iP);
-                }
-                else
-                {
-                }
+                caseP(iN, iP);
+
                 iTime++;
                 break;
             //Access virtual memory
             case 'A':
                 file >> iD >> iP >> iM;
-                if (option == 1)
-                {
-                }
-                else if (option == 2)
-                {
-                    caseA(iD, iP, iM);
-                }
-                else
-                {
-                }
+                caseA(iD, iP, iM);
+
                 break;
             //Free pages from process
             case 'L':
                 file >> iP;
-                if (option == 1)
-                {
-                }
-                else if (option == 2)
-                {
-                    caseL(iP);
-                }
-                else
-                {
-                }
+                caseL(iP);
+
                 break;
             //End of commands
             case 'F':
@@ -417,18 +393,9 @@ public:
                 break;
             //Exit
             case 'E':
-                if (option == 1)
-                {
-                }
-                else if (option == 2)
-                {
-                    imprimirArreglo();
-                    imprimirMapa();
-                    imprimirSwap();
-                }
-                else
-                {
-                }
+                imprimirArreglo();
+                imprimirMapa();
+                imprimirSwap();
 
                 break;
             }
