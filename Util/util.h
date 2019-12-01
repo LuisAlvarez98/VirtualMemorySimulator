@@ -363,46 +363,76 @@ public:
         {
             switch (cOpc)
             {
+            //Comment case
             case 'C':
                 getline(file, sReplica);
                 cout << sReplica << endl;
                 iTimeStamp++;
                 break;
-
+            //Add process
             case 'P':
                 file >> iN >> iP;
-                caseP(iN, iP);
+                if (option == 1)
+                {
+                }
+                else if (option == 2)
+                {
+                    caseP(iN, iP);
+                }
+                else
+                {
+                }
                 iTime++;
                 break;
-
+            //Access virtual memory
             case 'A':
                 file >> iD >> iP >> iM;
-                caseA(iD, iP, iM);
+                if (option == 1)
+                {
+                }
+                else if (option == 2)
+                {
+                    caseA(iD, iP, iM);
+                }
+                else
+                {
+                }
                 break;
-
+            //Free pages from process
             case 'L':
                 file >> iP;
-                caseL(iP);
+                if (option == 1)
+                {
+                }
+                else if (option == 2)
+                {
+                    caseL(iP);
+                }
+                else
+                {
+                }
                 break;
-
+            //End of commands
             case 'F':
                 cout << 'F' << endl;
                 break;
-
+            //Exit
             case 'E':
-                imprimirArreglo();
-                imprimirMapa();
-                imprimirSwap();
+                if (option == 1)
+                {
+                }
+                else if (option == 2)
+                {
+                    imprimirArreglo();
+                    imprimirMapa();
+                    imprimirSwap();
+                }
+                else
+                {
+                }
+
                 break;
             }
         }
-        //     Process process;
-
-        //     process.setBytes(stoi(line));
-
-        //     process.setProcess(stoi(line));
-
-        //     physicalMemory.assignProcessFifo(process);
-        // physicalMemory.showProcessesFifo();
     };
 };
