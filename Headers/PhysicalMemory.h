@@ -5,6 +5,8 @@
 
 #include "Process.h"
 #include<queue>
+#include <string>
+
 using namespace std;
 
 class PhysicalMemory{
@@ -25,6 +27,7 @@ class PhysicalMemory{
         }else{
             if(frames - processFrames >= 0){
                 processesInMemory.push(process);
+                cout << process.getProcess() << " Added to memory!" << endl;
                 frames-= processFrames;
             }else{
                  cout << process.getProcess()  << " Does not fit, replacement policy on the way" << endl;
@@ -38,25 +41,27 @@ class PhysicalMemory{
                     frames+= auxFrames;  
                     frames-= ceil(process.getBytes()/16);
                     processesInMemory.push(process);
+                    cout << process.getProcess() << " Added to memory!" << endl;
                 }else{
                     bool flag = true;
                     while(flag){
+                        cout << processesInMemory.front().getProcess() << " Removed!" << endl;
                         processesInMemory.pop();
                         aux = processesInMemory.front();
                         auxFrames += ceil(aux.getBytes()/16);
-                        if(auxFrames < procFrames){
-                            cout << auxFrames << " " << procFrames << "\n";
-                        }else{
+                        if(!(auxFrames < procFrames)){
+                            cout << processesInMemory.front().getProcess() << " Removed!" << endl;
                             processesInMemory.pop();
-                            cout << auxFrames << " " << procFrames << "\n";
                             flag = false;
                         }
+                         
                     }
-                    
+
                     frames = frames + auxFrames;
                     frames = frames - ceil(process.getBytes()/16);
                     processesInMemory.push(process);
-                   cout << "nimoo chav" << endl;
+
+                    cout << process.getProcess() << " Added to memory!" << endl;
                 }
             }
         }
@@ -65,6 +70,7 @@ class PhysicalMemory{
     }
 
     void showProcessesFifo(){
+        cout << "Process in list " << endl;
         while(!processesInMemory.empty()){
             cout << "("<<processesInMemory.front().getProcess() <<")" << "(" << ceil(processesInMemory.front().getBytes()/16) << " frames used" << ")"<<  endl;
             processesInMemory.pop();
