@@ -1,4 +1,5 @@
 /*
     FIFO
 */
-class Fifo{//empty class};
+class Fifo{//empty class
+};

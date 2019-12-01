@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 #include "../Headers/Process.h"
+#include "../Headers/PhysicalMemory.h"
+
 using namespace std;
 
 class Util{
@@ -16,6 +18,8 @@ class Util{
        bool isTerminated = false; //determines if the app isTerminated
 
        vector<Process> processes;
+
+       PhysicalMemory physicalMemory;
 
     public:
     /*
@@ -86,11 +90,8 @@ class Util{
             line.erase(0, del+1);
             process.setProcess(stoi(line));
 
-            processes.push_back(process);
+            physicalMemory.assignProcessFifo(process);
         }
-      
-      for(int i = 0; i < processes.size();i++){
-          cout << processes[i].getProcess() << "\n";
-      }
+        physicalMemory.showProcessesFifo();
     };
 };
