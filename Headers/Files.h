@@ -4,23 +4,27 @@
 #include <fstream>
 using namespace std;
 
- class Files {
- public:
-        Files() {}
+class Files
+{
+public:
+    Files() {}
 
-        // Intenta abrir un archivo
-        bool tryOpen(string filename, ifstream &file) {
-            file.open(filename);
-            if (file.is_open()) {
-                return true;
-            }
-             if(file.peek() == ifstream::traits_type::eof()){
-                //el archivo esta vacio
-                return false;
-    }
+    // Intenta abrir un archivo
+    bool tryOpen(string filename, ifstream &file)
+    {
+        file.open(filename);
+        if (file.is_open())
+        {
+            return true;
+        }
+        if (file.peek() == ifstream::traits_type::eof())
+        {
+            //el archivo esta vacio
             return false;
         }
-        //Lee los datos del archivo y los va guardando
- };
+        return false;
+    }
+    //Lee los datos del archivo y los va guardando
+};
 
 #endif
