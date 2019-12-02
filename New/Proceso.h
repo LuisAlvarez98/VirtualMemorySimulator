@@ -1,12 +1,9 @@
+#pragma once
 #include <cmath>
 #include <vector>
-#include "Globals.h"
-#pragma once
 /*
     Proceso Class
 */
-
-using namespace globals;
 
 class Proceso
 {
@@ -18,57 +15,31 @@ private:
     vector<Pagina> paginas;
 public:
     
-    Proceso() {}
-    /*
-        Constructor that recieves bytes and proceso
-    */
-    Proceso(int bytes, int numProceso)
-    {
-        this->numProceso = numProceso;
-        setBytes(bytes);
-    }
+    Proceso();
+    
+    Proceso(int bytes, int numProceso);
     /*
         getnumProceso method
         return proceso
     */
-    int getProceso()
-    {
-        return numProceso;
-    }
+    int getProceso();
     /*
         getBytes method
         return bytes
     */
-    int getBytes()
-    {
-        return bytes;
-    }
+    int getBytes();
 
-    int getNumPaginas(){
-        return numPaginas;
-    }
+    int getNumPaginas();
     /*
         setProceso method
     */
-    void setProceso(int numProceso)
-    {
-        this->numProceso = numProceso;
-    }
+    void setProceso(int numProceso);
     /*
         setBytes methods
     */
-    void setBytes(int bytes)
-    {
-        this->bytes = bytes;
-        this->numPaginas = ceil(bytes * 1.0/TAMANO_PAGINA);
-    }
+    void setBytes(int bytes);
 
-    void agregarPagina(Pagina pagina){
+    void agregarPagina(Pagina pagina);
 
-        this->paginas.push_back(pagina);
-    }
-
-    Pagina getPagina(int pagina){
-        return this->paginas[pagina];
-    }
+    Pagina getPagina(int pagina);
 };

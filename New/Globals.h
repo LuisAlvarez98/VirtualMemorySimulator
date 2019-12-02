@@ -1,6 +1,6 @@
 #include "TablaDePaginas.h"
 #include "ListaProcesos.h"
-#include "Pagina.h"
+//#include "Pagina.h"
 #include <queue>
 
 using namespace std;
@@ -15,8 +15,8 @@ namespace globals {
 
     enum Algoritmo : int {FIFO, LRU} algoritmo;
     
-    TablaDePaginas tablaDePaginas();
-    queue<Pagina> queueMarcoPaginas();
-    ListaProcesos listaProcesos();
+    TablaDePaginas tablaDePaginas;
+    queue<Pagina> queueMarcoPaginas;
+    ListaProcesos listaProcesos;
 };
 

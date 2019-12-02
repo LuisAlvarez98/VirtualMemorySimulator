@@ -1,5 +1,5 @@
 #include <vector>
-#include "TablaDePaginas.h"
+//#include "TablaDePaginas.h"
 #include "Globals.h"
 #include "Pagina.h"
 

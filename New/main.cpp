@@ -1,4 +1,3 @@
-#include "Globals.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -7,7 +6,6 @@
 #include "Commandos.h"
 
 using namespace std;
-using namespace globals;
 
 Commandos commandos;
 
@@ -34,7 +32,7 @@ void caseA(int iD, int iP, int iM)
     }
     commandos.A(iD, iP, iM);
 }
-int readFile()
+void readFile()
 {
     Files flag;
     ifstream file;
@@ -51,7 +49,7 @@ int readFile()
     if (!(flag.tryOpen(archivo, file)))
     {
         cout << "El archivo no existe o esta vacio" << endl;
-        return 0;
+        return;
     }
 
     while (file >> cOpc)

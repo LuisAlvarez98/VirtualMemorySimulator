@@ -1,7 +1,6 @@
 #include <vector>
 #include "Pagina.h"
 //tratar de mandar namespace y includes a main, u otro doc
-using namespace std;
 
 class TablaDePaginas {
 

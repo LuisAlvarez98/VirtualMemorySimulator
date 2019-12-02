@@ -1,7 +1,7 @@
 #include <vector>
 #include "Globals.h"
 #include "Proceso.h"
-#include "Pagina.h"
+//#include "Pagina.h"
 //tratar de mandar namespace y includes a main, u otro doc
 using namespace std;
 using namespace globals;
@@ -38,7 +38,7 @@ class Commandos {
             if(tablaDePaginas.paginaVacia(i)){
 
                 //crea una pagina
-                Pagina pagina(proceso, paginasAsignadas+1, 1, i);
+                Pagina pagina(proceso.getProceso(), paginasAsignadas+1, 1, i, -1);
                 //updatear tabla de paginas
                 tablaDePaginas.set(i, pagina);
                 //agregar a paginas del proceso
@@ -50,13 +50,13 @@ class Commandos {
         }
 
         //insertar proceso a lista de procesos
-        ListaProcesos.push_back(proceso);
+        listaProcesos.getProcesos().push_back(proceso);
         
 
         //imprimir la lista de paginas
         cout << "Lista de paginas: ";
         for(int i = 0; i < proceso.getNumPaginas(); i++){
-            cout << proceso.getPagina(i).getMarcoPagina() << ', ';
+            cout << proceso.getPagina(i).getMarcoPagina() << ", ";
         }
         cout << endl;
         //imprimir lista paginas swappeadas
@@ -71,18 +71,20 @@ class Commandos {
         int pagina = iD / TAMANO_PAGINA;
         int offset = iD % TAMANO_PAGINA;
 
-        Proceso proceso = getProceso(iP);
+        Proceso proceso = listaProcesos.getProceso(iP);
 
         if(proceso.getPagina(pagina).isMemoriaReal()){
             //si no es la ultima pagina
             if(proceso.getPagina(pagina).getNumPagina() < proceso.getNumPaginas()){
                 int memoriaReal = proceso.getPagina(pagina).getMarcoPagina() * TAMANO_PAGINA + offset;
+                cout << proceso.getPagina(pagina).getMarcoPagina() << " " << offset; 
             }else{
                 //validar el offset
                 if(offset > proceso.getBytes() % TAMANO_PAGINA){
                     //error: Fragmentacion interna
                 }else{
                     int memoriaReal = proceso.getPagina(pagina).getMarcoPagina() * TAMANO_PAGINA + offset;
+                    cout << proceso.getPagina(pagina).getMarcoPagina() << " " << offset;
                 }
             }
     
