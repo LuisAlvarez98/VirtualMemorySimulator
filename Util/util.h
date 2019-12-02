@@ -12,6 +12,7 @@
 #include <unordered_map>
 using namespace std;
 
+
 class Util
 {
     //instance variables
@@ -32,6 +33,7 @@ private:
     int iSwaps = 0;
     int iC = 0;
     int iTime = 0;
+
 
 public:
     //Funciones para imprimir resultados
@@ -318,15 +320,11 @@ public:
             {
             case 1:
                 //runFifo();
-                readFile(option);
                 break;
             case 2:
                 //runLRU();
-                readFile(option);
                 break;
             case 3:
-                readFile(option);
-                //runBoth();
                 //run
                 break;
             case 4:
@@ -334,6 +332,13 @@ public:
                 break;
             }
         }
+    }
+    void processP(int b, int p){
+        Process process;
+        process.setBytes(b);
+        process.setProcess(p);
+        physicalMemory.assignProcessFifo(process);
+
     }
     /*
      Read file method
@@ -371,8 +376,8 @@ public:
             //Add process
             case 'P':
                 file >> iN >> iP;
-                caseP(iN, iP);
-
+                processP(iN,iP);
+                //caseP(iN, iP);
                 iTime++;
                 break;
             //Access virtual memory
@@ -400,5 +405,7 @@ public:
                 break;
             }
         }
+
+        physicalMemory.showProcessesFifo();        
     };
 };
