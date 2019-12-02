@@ -17,3 +17,8 @@ int TablaDePaginas::paginasVacias(){
 
     return paginasVacias;
 }
+
+bool TablaDePaginas::paginaVacia(int pagina){
+
+    return this->tabla[pagina] == -1;
+}

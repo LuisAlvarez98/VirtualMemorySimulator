@@ -9,8 +9,6 @@
 using namespace std;
 using namespace globals;
 
-bool isTerminated = false;
-int option; 
 Commandos commandos;
 
 int readFile()
@@ -72,6 +70,8 @@ int readFile()
 }
 void start()
 {
+    bool isTerminated = false;
+    int option; 
     //Runs the menu until the user types any option
     while (!isTerminated)
     {

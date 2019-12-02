@@ -1,4 +1,5 @@
 #include <cmath>
+#include <vector>
 #include "Globals.h"
 #pragma once
 /*
@@ -15,7 +16,7 @@ private:
     int bytes;
     int bitModificacion;
     int numPaginas;
-
+    vector<int> paginas;
 public:
     
     Proceso() {}
@@ -62,5 +63,14 @@ public:
     {
         this->bytes = bytes;
         this->numPaginas = ceil(bytes * 1.0/TAMANO_PAGINA);
+    }
+
+    void agregarPagina(int pagina){
+
+        this->paginas.push_back(pagina);
+    }
+
+    int get(int pagina){
+        return this->paginas[pagina];
     }
 };

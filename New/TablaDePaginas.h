@@ -10,5 +10,5 @@ class TablaDePaginas {
     
     TablaDePaginas ();
     int paginasVacias();
-
+    bool paginaVacia(int pagina);
 };
