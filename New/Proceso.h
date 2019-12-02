@@ -12,11 +12,10 @@ class Proceso
 {
 private:
     int numProceso;
-    int bitResidencia;
     int bytes;
     int bitModificacion;
     int numPaginas;
-    vector<int> paginas;
+    vector<Pagina> paginas;
 public:
     
     Proceso() {}
@@ -27,7 +26,6 @@ public:
     {
         this->numProceso = numProceso;
         setBytes(bytes);
-        this->bitResidencia = 0;
     }
     /*
         getnumProceso method
@@ -65,12 +63,12 @@ public:
         this->numPaginas = ceil(bytes * 1.0/TAMANO_PAGINA);
     }
 
-    void agregarPagina(int pagina){
+    void agregarPagina(Pagina pagina){
 
         this->paginas.push_back(pagina);
     }
 
-    int get(int pagina){
+    Pagina getPagina(int pagina){
         return this->paginas[pagina];
     }
 };

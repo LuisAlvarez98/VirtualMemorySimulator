@@ -11,6 +11,29 @@ using namespace globals;
 
 Commandos commandos;
 
+
+//Funciones para la llamadas de comandos
+void caseP(int iN, int iP)
+{
+    cout << "P " << iN << " " << iP << endl;
+    cout << "Asignar " << iN << " bytes al proceso " << iP << endl;
+    commandos.P(iN, iP);
+}
+
+void caseA(int iD, int iP, int iM)
+{
+    cout << "A " << iD << " " << iP << " " << iM << endl;
+    if (iM == 0)
+    {
+        cout << "Obtener la dirección real correspondiente a la dirección virtual " << iD << " del proceso " << iP << endl;
+    }
+    if (iM == 1)
+    {
+        cout << "Obtener la dirección real correspondiente a la dirección virtual " << iD << " del proceso " << iP << " y modificar dicha dirección" << endl;
+        //cout << "Se modificó la dirección " << iD << " del proceso " << iP << endl;
+    }
+    commandos.A(iD, iP, iM);
+}
 int readFile()
 {
     Files flag;
@@ -44,12 +67,12 @@ int readFile()
         case 'P':
             file >> iN >> iP;
             cout << iN << endl;
-            commandos.P(iN, iP);
+            caseP(iN, iP);
             break;
         //Access virtual memory
         case 'A':
             file >> iD >> iP >> iM;
-
+            caseA(iD, iP, iN);
             break;
         //Free pages from process
         case 'L':

@@ -1,14 +1,16 @@
 #include <vector>
+#include "Pagina.h"
 //tratar de mandar namespace y includes a main, u otro doc
 using namespace std;
 
 class TablaDePaginas {
 
     private:
-        vector<int > tabla;
+        vector<Pagina*> tabla;
     public:
     
     TablaDePaginas ();
     int paginasVacias();
     bool paginaVacia(int pagina);
+    int set(int indice, Pagina pagina);
 };
