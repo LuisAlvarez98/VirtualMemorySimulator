@@ -3,5 +3,5 @@ class Fifo{
     private:
 
     public:
-        void eliminarPaginas(int cantidad);
+        vector<Pagina*> eliminarPaginas(int cantidad);
 };

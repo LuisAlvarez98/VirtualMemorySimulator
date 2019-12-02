@@ -26,6 +26,10 @@ class Pagina {
         return this->numPagina;    
     }
 
+    int getMemoriaDisco(){
+        return this->memoriaDisco;
+    }
+
     int getMarcoPagina(){
         return this->marcoPagina;
     }

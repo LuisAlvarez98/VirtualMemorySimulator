@@ -1,4 +1,6 @@
-void Fifo::eliminarPaginas(int cantidad){
+vector<Pagina*> Fifo::eliminarPaginas(int cantidad){
+
+    vector<Pagina*> paginasModificadas;
 
     for(int i = 0; i < cantidad; i ++){
         Pagina* pagina = &queuePaginas.front();
@@ -16,17 +18,17 @@ void Fifo::eliminarPaginas(int cantidad){
             if(memoriaDisco.lugarVacio(i)){
                 pagina->setMemoriaDisco(i);
                 memoriaDisco.getMemoria()[i] = pagina;
+                paginasModificadas.push_back(pagina);
                 asignada = true;
             }
         }
         //validar que disco no este lleno.
         if(!asignada){
             cout << "Error: Disco lleno." << endl;
-            return;
         }
 
-        
-        
-        
+             
     }
+
+    return paginasModificadas;
 }

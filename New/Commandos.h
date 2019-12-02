@@ -16,13 +16,14 @@ class Commandos {
 
     void P(int iN, int iP) {
 
+        vector<Pagina*> paginasModificadas;
         //crear proceso P con n bytes
         Proceso proceso(iN, iP);
         //asignar proceso a MemporiaReal
         // si hay espacio, metelo
         if(tablaDePaginas.paginasVacias() < proceso.getNumPaginas()){
             if(algoritmo == FIFO){
-            fifo.eliminarPaginas(proceso.getNumPaginas() - tablaDePaginas.paginasVacias());
+            paginasModificadas = fifo.eliminarPaginas(proceso.getNumPaginas() - tablaDePaginas.paginasVacias());
 
             }else if(algoritmo == LRU){
 
@@ -56,16 +57,14 @@ class Commandos {
             cout << proceso.getPagina(i).getMarcoPagina() << ", ";
         }
         cout << endl;
-        //imprimir lista paginas swappeadas
-        cout << memoriaDisco.getMemoria().size() << endl;
-        for(int i = 0; i < memoriaDisco.getMemoria().size(); i ++){
-            if(memoriaDisco.getMemoria()[i] != NULL){
-                cout << (*memoriaDisco.getMemoria()[i]).getProceso() <<  " "  << (*memoriaDisco.getMemoria()[i]).getNumPagina() <<", ";
-            }
-        }cout << endl;
-        // a que proceso y numero de pagina pertenecia
-        //donde quedo en el area de swapping
 
+        if(paginasModificadas.size() > 0){
+            cout << "Paginas reemplazadas:" << endl;
+        }
+
+        for(int i = 0; i < paginasModificadas.size(); i ++){
+            cout << "proceso: " << paginasModificadas[i]->getProceso() << ", numero de pagina: " << paginasModificadas[i]->getNumPagina() << ", ubicacion en disco: " << paginasModificadas[i]->getMemoriaDisco() << endl;
+        }
 
     }
 
