@@ -18,7 +18,7 @@ bool TablaDePaginas::paginaVacia(int pagina){
     return this->tabla[pagina] == NULL;
 }
 
-void TablaDePaginas::set(int indice, Pagina pagina){
+void TablaDePaginas::set(int indice, Pagina* pagina){
 
-    this->tabla[indice] = &pagina;
+    this->tabla[indice] = pagina;
 }

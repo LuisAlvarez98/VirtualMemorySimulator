@@ -2,14 +2,22 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <queue>
 #include "Files.h"
 #include "Commandos.h"
 #include "Proceso.cpp"
 #include "TablaDePaginas.cpp"
+#include "Fifo.cpp"
+#include "MemoriaDisco.cpp"
 using namespace std;
 
-Commandos commandos;
+ListaProcesos globals::listaProcesos;
+TablaDePaginas globals::tablaDePaginas;
+queue<Pagina> globals::queuePaginas;
+Fifo globals::fifo;
+MemoriaDisco globals::memoriaDisco;
 
+Commandos commandos;
 
 //Funciones para la llamadas de comandos
 void caseP(int iN, int iP)
@@ -60,12 +68,11 @@ void readFile()
         //Comment case
         case 'C':
             getline(file, sReplica);
-            cout << sReplica << endl;
+            cout << "C" << sReplica << endl;
             break;
         //Add process
         case 'P':
             file >> iN >> iP;
-            cout << iN << endl;
             caseP(iN, iP);
             break;
         //Access virtual memory
@@ -107,10 +114,13 @@ void start()
         switch (option)
         {
         case 1:
+            algoritmo = FIFO;
             readFile();
             //runFifo();
             break;
         case 2:
+            algoritmo = LRU;
+            readFile();
             //runLRU();
             break;
         case 3:
@@ -125,7 +135,7 @@ void start()
 
 int main(){
 
-
+    
     start();
 
     return 0;

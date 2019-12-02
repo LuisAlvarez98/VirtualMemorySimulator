@@ -23,9 +23,8 @@ class ListaProcesos {
 
     }
 
-    vector<Proceso> getProcesos(){
+    vector<Proceso>& getProcesos(){
         return procesos;
     }
-
 
 };

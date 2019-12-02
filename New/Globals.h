@@ -1,8 +1,8 @@
 #include "TablaDePaginas.h"
 #include "ListaProcesos.h"
 //#include "Pagina.h"
-#include <queue>
-
+#include "Fifo.h"
+#include "MemoriaDisco.h"
 using namespace std;
 
 namespace globals {
@@ -15,8 +15,10 @@ namespace globals {
 
     enum Algoritmo : int {FIFO, LRU} algoritmo;
     
-    TablaDePaginas tablaDePaginas;
-    queue<Pagina> queueMarcoPaginas;
-    ListaProcesos listaProcesos;
+    extern TablaDePaginas tablaDePaginas;
+    extern queue<Pagina> queuePaginas;
+    extern ListaProcesos listaProcesos;
+    extern Fifo fifo;
+    extern MemoriaDisco memoriaDisco;
 };
 

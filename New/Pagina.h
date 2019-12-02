@@ -19,6 +19,9 @@ class Pagina {
         this->memoriaDisco = memoriaDisco;
     }
 
+    int getProceso(){
+        return this->proceso;
+    }
     int getNumPagina(){
         return this->numPagina;    
     }
@@ -27,11 +30,23 @@ class Pagina {
         return this->marcoPagina;
     }
 
+    void setMarcoPagina(int marcoPagina){
+        this->marcoPagina = marcoPagina;
+    }
+
     bool isMemoriaReal(){
-        return this->marcoPagina != -1;
+        return this->bitResidencia;
     }
 
     bool isMemoriaDisco(){
-        return this->memoriaDisco != -1;
+        return !this->bitResidencia;
+    }
+
+    void setBitResidencia(int bit){
+        this->bitResidencia = bit;
+    }
+
+    void setMemoriaDisco(int lugar){
+        this->memoriaDisco = lugar;
     }
 };
