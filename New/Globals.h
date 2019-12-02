@@ -12,8 +12,8 @@ namespace globals {
 
 
     enum Algoritmo : int {FIFO, LRU} algoritmo;
-    static TablaDePaginas tablaDePaginas;
+    TablaDePaginas tablaDePaginas();
 
-    static queue<int> queueMarcoPaginas();
+    queue<int> queueMarcoPaginas();
 };
 
