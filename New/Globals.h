@@ -1,4 +1,5 @@
 #include "TablaDePaginas.h"
+#include "ListaProcesos.h"
 #include <queue>
 
 using namespace std;
@@ -15,5 +16,6 @@ namespace globals {
     
     TablaDePaginas tablaDePaginas();
     queue<int> queueMarcoPaginas();
+    ListaProcesos listaProcesos();
 };
 
