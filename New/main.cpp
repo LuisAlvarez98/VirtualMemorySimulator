@@ -4,12 +4,14 @@
 #include <vector>
 #include <string>
 #include "Files.h"
+#include "Commandos.h"
 
 using namespace std;
 using namespace globals;
 
 bool isTerminated = false;
 int option; 
+Commandos commandos;
 
 int readFile()
 {
@@ -44,6 +46,7 @@ int readFile()
         case 'P':
             file >> iN >> iP;
             cout << iN << endl;
+            commandos.P(iN, iP);
             break;
         //Access virtual memory
         case 'A':
@@ -99,6 +102,8 @@ void start()
 }
 
 int main(){
+
+
     start();
 
     return 0;

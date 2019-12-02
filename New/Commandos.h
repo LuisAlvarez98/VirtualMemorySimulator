@@ -12,9 +12,7 @@ class Commandos {
 
     public:
     
-    Commandos () {
-
-    }
+    Commandos () {}
 
     void P(int iN, int iP) {
 
@@ -35,7 +33,7 @@ class Commandos {
         }
         
         //inserta proceso
-
+        
         queueMarcoPaginas.push(numMarcoPagina);
 
 
