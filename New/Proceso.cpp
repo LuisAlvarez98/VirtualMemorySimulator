@@ -1,7 +1,3 @@
-#include "Globals.h"
-
-using namespace globals;
-
 Proceso::Proceso() {}
 /*
     Constructor that recieves bytes and proceso

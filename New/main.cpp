@@ -4,7 +4,8 @@
 #include <string>
 #include "Files.h"
 #include "Commandos.h"
-
+#include "Proceso.cpp"
+#include "TablaDePaginas.cpp"
 using namespace std;
 
 Commandos commandos;

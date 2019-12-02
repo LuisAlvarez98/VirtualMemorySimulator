@@ -1,11 +1,4 @@
-#include <vector>
-//#include "TablaDePaginas.h"
-#include "Globals.h"
-#include "Pagina.h"
-
-using namespace globals;
-
- TablaDePaginas::TablaDePaginas () {
+TablaDePaginas::TablaDePaginas () {
     tabla = vector<Pagina*>(TAMANO_TABLA_PAGINAS, NULL);
 }
 
@@ -25,7 +18,7 @@ bool TablaDePaginas::paginaVacia(int pagina){
     return this->tabla[pagina] == NULL;
 }
 
-int TablaDePaginas::set(int indice, Pagina pagina){
+void TablaDePaginas::set(int indice, Pagina pagina){
 
     this->tabla[indice] = &pagina;
 }
