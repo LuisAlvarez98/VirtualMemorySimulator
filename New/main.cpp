@@ -88,6 +88,7 @@ void readFile()
         //End of commands
         case 'F':
             cout << 'F' << endl;
+            cout << "Numero total de reemplazos: " << countSwaps << endl;
             break;
         //Exit
         case 'E':

@@ -71,6 +71,7 @@ class Commandos {
         }
 
         for(int i = 0; i < paginasModificadas.size(); i ++){
+            countSwaps++;
             cout << "proceso: " << paginasModificadas[i]->getProceso() << ", numero de pagina: " << paginasModificadas[i]->getNumPagina() << ", ubicacion en disco: " << paginasModificadas[i]->getMemoriaDisco() << endl;
         }
 
@@ -135,6 +136,7 @@ class Commandos {
             //proceso y numPagina pertenecia, donde quedo en swapping
             if(paginasModificadas.size() > 0){
                 cout << "Se ha swappeado por la pagina " << paginasModificadas[0]->getNumPagina() << " del proceso " << paginasModificadas[0]->getProceso() << "." << endl;
+                //Contar swaps
                 cout << "Esta pagina ahora se encuentra en el disco, en el marco: " << paginasModificadas[0]->getMemoriaDisco() << endl;
             }
 
