@@ -11,6 +11,8 @@ namespace globals {
     const int TAMANO_MEMORIA_REAL = 2048;
     const int TAMANO_MEMORIA_DISCO = 4096;
     const int TAMANO_TABLA_PAGINAS = 128;
+    //Variable para contar el total de reemplazos 
+    static int countSwaps = 0;
 
 
     enum Algoritmo : int {FIFO, LRU} algoritmo;
