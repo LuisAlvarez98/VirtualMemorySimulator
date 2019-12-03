@@ -15,11 +15,12 @@ private:
     int bitModificacion;
     int numPaginas;
     vector<Pagina*> paginas;
+    bool borrado;
 public:
     
     Proceso();
 
-    Proceso(int bytes, int numProceso, double tiempoCreado, double tiempoFinal);
+    Proceso(int bytes, int numProceso, double tiempoCreado, double tiempoFinal, bool borrado);
     /*
         getnumProceso method
         return proceso
@@ -41,6 +42,10 @@ public:
     /*
         setProceso method
     */
+   bool getBorrado();
+
+   bool setBorrado(int valor);
+
     void setProceso(int numProceso);
     /*
         setBytes methods

@@ -18,7 +18,7 @@ class Commandos {
 
         vector<Pagina*> paginasModificadas;
         //crear proceso P con n bytes
-        Proceso* proceso = new Proceso(iN, iP, timestamp,-1);
+        Proceso* proceso = new Proceso(iN, iP, timestamp,-1, 0);
         //asignar proceso a MemporiaReal
         // si hay espacio, metelo
         if(tablaDePaginas.paginasVacias() < proceso->getNumPaginas()){
@@ -162,6 +162,12 @@ class Commandos {
         vector<int> paginasMod;
         vector<int> paginasModDisco;
         proceso = listaProcesos.getProceso(iP);
+
+        if(proceso->getBorrado()){
+            cout << "Este proceso ya fue borrado." << endl;
+            return;
+        }
+
         for(int i = 0; i < proceso->getNumPaginas(); i++){
             if(proceso->getPagina(i)->isMemoriaReal()) {
                 paginasMod.push_back(proceso->getPagina(i)->getMarcoPagina());
@@ -176,6 +182,7 @@ class Commandos {
                 timestamp+=0.1;
             }
         }
+        proceso->setBorrado(1);
         proceso->setTiempoFinal(timestamp);
 
         if(paginasMod.size() > 0) {

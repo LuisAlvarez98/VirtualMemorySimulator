@@ -2,11 +2,12 @@ Proceso::Proceso() {}
 /*
     Constructor that recieves bytes and proceso
 */
-Proceso::Proceso(int bytes, int numProceso, double tiempoCreado, double tiempoFinal)
+Proceso::Proceso(int bytes, int numProceso, double tiempoCreado, double tiempoFinal, bool borrado)
 {
     this->numProceso = numProceso;
     this->tiempoCreado = tiempoCreado;
     this->tiempoFinal = tiempoFinal;
+    this->borrado = borrado;
     setBytes(bytes);
 }
 /*
@@ -41,12 +42,20 @@ int Proceso::getBytes()
 int Proceso::getNumPaginas(){
     return numPaginas;
 }
+
+bool Proceso::getBorrado(){
+    return this->borrado;
+}
 /*
     setProceso method
 */
 void Proceso::setProceso(int numProceso)
 {
     this->numProceso = numProceso;
+}
+
+bool Proceso::setBorrado(int valor){
+    this->borrado = valor;
 }
 /*
     setBytes methods
