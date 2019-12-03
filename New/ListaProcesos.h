@@ -6,24 +6,24 @@ using namespace std;
 class ListaProcesos {
 
     private:
-        vector<Proceso> procesos;
+        vector<Proceso*> procesos;
     public:    
     ListaProcesos () {
-        procesos = vector<Proceso>();
+        procesos = vector<Proceso*>();
     }
 
-    Proceso getProceso(int numProceso){
+    Proceso* getProceso(int numProceso){
 
         for(int i = 0; i < procesos.size(); i++){
 
-            if(procesos[i].getProceso() == numProceso){
+            if(procesos[i]->getProceso() == numProceso){
                 return procesos[i];
             }
         }
 
     }
 
-    vector<Proceso>& getProcesos(){
+    vector<Proceso*>& getProcesos(){
         return procesos;
     }
 

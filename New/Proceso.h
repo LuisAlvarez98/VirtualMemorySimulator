@@ -10,24 +10,32 @@ class Proceso
 private:
     int numProceso;
     int bytes;
+    double tiempoCreado;
+    double tiempoFinal;
     int bitModificacion;
     int numPaginas;
     vector<Pagina*> paginas;
 public:
     
     Proceso();
-    
-    Proceso(int bytes, int numProceso);
+
+    Proceso(int bytes, int numProceso, double tiempoCreado, double tiempoFinal);
     /*
         getnumProceso method
         return proceso
     */
+
     int getProceso();
     /*
         getBytes method
         return bytes
     */
     int getBytes();
+
+    void setTiempoFinal(double tF);
+    double calculaTurnaround();
+    double getTiempoFinal();
+    double getTiempoCreado();
 
     int getNumPaginas();
     /*

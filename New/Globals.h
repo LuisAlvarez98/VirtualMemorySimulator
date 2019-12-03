@@ -14,6 +14,7 @@ namespace globals {
     const int TAMANO_TABLA_PAGINAS = 128;
     //Variable para contar el total de reemplazos 
     extern int countSwaps;
+    extern double timestamp;
 
 
     enum Algoritmo : int {FIFO, LRU} algoritmo;

@@ -18,6 +18,7 @@ queue<Pagina*> globals::queuePaginas;
 Fifo globals::fifo;
 MemoriaDisco globals::memoriaDisco;
 int globals::countSwaps = 0;
+double globals::timestamp = 0;
 map<int,int> globals:: turnaroundMap;
 Commandos commandos;
 
@@ -50,6 +51,18 @@ void caseL(int iP){
 }
 void caseF(){
     cout << "Numero total de reemplazos: " << countSwaps << endl;
+        double promedio = 0;
+        int contadorTurn = 0;
+            for(int i =0; i < listaProcesos.getProcesos().size(); i++){
+                if(listaProcesos.getProcesos()[i]->getTiempoFinal() != -1){
+                   double turnaround =  listaProcesos.getProcesos()[i]->calculaTurnaround(); 
+                   cout << "Turnaround de proceso " << listaProcesos.getProcesos()[i]->getProceso() << ": " << turnaround << endl;
+                   promedio += turnaround;
+                   contadorTurn++;
+                }
+            }
+        cout << "Turnaround promedio: " << promedio / contadorTurn << endl;
+
 }
 void readFile()
 {
@@ -98,6 +111,7 @@ void readFile()
         //End of commands
         case 'F':
             cout << 'F' << endl;
+        
             caseF();
             break;
         //Exit

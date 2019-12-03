@@ -22,6 +22,8 @@ vector<Pagina*> Fifo::eliminarPaginas(int cantidad){
                 asignada = true;
                 //Swap out
                 countSwaps++;
+                 //Timestamp
+                timestamp++;
             }
         }
         //validar que disco no este lleno.

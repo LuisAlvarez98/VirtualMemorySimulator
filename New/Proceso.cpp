@@ -2,9 +2,11 @@ Proceso::Proceso() {}
 /*
     Constructor that recieves bytes and proceso
 */
-Proceso::Proceso(int bytes, int numProceso)
+Proceso::Proceso(int bytes, int numProceso, double tiempoCreado, double tiempoFinal)
 {
     this->numProceso = numProceso;
+    this->tiempoCreado = tiempoCreado;
+    this->tiempoFinal = tiempoFinal;
     setBytes(bytes);
 }
 /*
@@ -14,6 +16,18 @@ Proceso::Proceso(int bytes, int numProceso)
 int Proceso::getProceso()
 {
     return numProceso;
+}
+double Proceso::getTiempoFinal(){
+    return this->tiempoFinal;
+}
+double Proceso::getTiempoCreado(){
+    return this->tiempoCreado;
+}
+void Proceso::setTiempoFinal(double tF){
+    this->tiempoFinal = tF;
+}
+double Proceso::calculaTurnaround(){
+    return tiempoFinal - tiempoCreado;
 }
 /*
     getBytes method
