@@ -16,6 +16,12 @@ class Commandos {
 
     void P(int iN, int iP) {
 
+        if(iN > 2048){
+            cout << "Tamano de proceso demasiado grande." << endl;
+            return;
+        }
+
+
         vector<Pagina*> paginasModificadas;
         //crear proceso P con n bytes
         Proceso* proceso = new Proceso(iN, iP, timestamp,-1, 0);
@@ -54,12 +60,6 @@ class Commandos {
 
         //insertar proceso a lista de procesos
         listaProcesos.getProcesos().push_back(proceso);
-
-        //for(int i = 0; i < memoriaDisco.getMemoria().size(); i ++){
-        //    if(memoriaDisco.getMemoria()[i] != NULL){
-        //        cout << memoriaDisco.getMemoria()[i]->getMemoriaDisco() << " " << memoriaDisco.getMemoria()[i]->getNumPagina() << " " << memoriaDisco.getMemoria()[i]->isMemoriaReal();
-        //    }
-        //}cout << endl;
 
         //imprimir la lista de paginas
         cout << "Lista de paginas: ";
