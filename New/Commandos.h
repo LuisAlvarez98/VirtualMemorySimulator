@@ -85,9 +85,11 @@ class Commandos {
         
         int pagina = iD / TAMANO_PAGINA;
         int offset = iD % TAMANO_PAGINA;
-
         Proceso* proceso = listaProcesos.getProceso(iP);
-
+        if(proceso == NULL){
+            cout << "No existe el proceso requerido." << endl;
+            return;
+        }
         if(proceso->getPagina(pagina)->isMemoriaReal()){
 
             //si no es la ultima pagina

@@ -9,4 +9,5 @@ class MemoriaDisco {
     MemoriaDisco ();
     bool lugarVacio(int posicion); 
     vector<Pagina*>& getMemoria();
+    void empty();
 };

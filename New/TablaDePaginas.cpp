@@ -22,3 +22,9 @@ void TablaDePaginas::set(int indice, Pagina* pagina){
 
     this->tabla[indice] = pagina;
 }
+
+void TablaDePaginas::empty(){
+    for(int i = 0; i < TAMANO_TABLA_PAGINAS; i++){
+        tabla[i]=NULL;
+    }
+}

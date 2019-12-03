@@ -18,6 +18,9 @@ int Proceso::getProceso()
 {
     return numProceso;
 }
+void Proceso::setTiempoCreado(double tC){
+    this->tiempoCreado = tC;
+}
 double Proceso::getTiempoFinal(){
     return this->tiempoFinal;
 }

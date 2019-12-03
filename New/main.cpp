@@ -19,7 +19,6 @@ Fifo globals::fifo;
 MemoriaDisco globals::memoriaDisco;
 int globals::countSwaps = 0;
 double globals::timestamp = 0;
-map<int,int> globals:: turnaroundMap;
 Commandos commandos;
 
 //Funciones para la llamadas de comandos
@@ -63,6 +62,14 @@ void caseF(){
             }
         cout << "Turnaround promedio: " << promedio / contadorTurn << endl;
 
+             memoriaDisco.empty();
+             tablaDePaginas.empty();
+             listaProcesos.empty();
+             while(!queuePaginas.empty()){
+                 queuePaginas.pop();
+             }
+             timestamp = 0;
+             countSwaps = 0;
 }
 void readFile()
 {
@@ -111,7 +118,6 @@ void readFile()
         //End of commands
         case 'F':
             cout << 'F' << endl;
-        
             caseF();
             break;
         //Exit

@@ -32,7 +32,7 @@ public:
         return bytes
     */
     int getBytes();
-
+    void setTiempoCreado(double tC);
     void setTiempoFinal(double tF);
     double calculaTurnaround();
     double getTiempoFinal();

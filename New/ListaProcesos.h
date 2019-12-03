@@ -13,18 +13,21 @@ class ListaProcesos {
     }
 
     Proceso* getProceso(int numProceso){
-
         for(int i = 0; i < procesos.size(); i++){
 
             if(procesos[i]->getProceso() == numProceso){
                 return procesos[i];
             }
         }
-
+        return NULL;
     }
 
     vector<Proceso*>& getProcesos(){
         return procesos;
     }
-
+    void empty(){
+        while(!procesos.empty()){
+            procesos.pop_back();
+        }
+    }
 };

@@ -12,4 +12,5 @@ class TablaDePaginas {
     int paginasVacias();
     bool paginaVacia(int pagina);
     void set(int indice, Pagina* pagina);
+    void empty();
 };
