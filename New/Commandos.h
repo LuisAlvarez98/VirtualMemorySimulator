@@ -59,8 +59,6 @@ class Commandos {
         //    }
         //}cout << endl;
 
-
-
         //imprimir la lista de paginas
         cout << "Lista de paginas: ";
         for(int i = 0; i < proceso.getNumPaginas(); i++){
@@ -133,6 +131,9 @@ class Commandos {
             //donde estaba
             cout << "Ubicacion de la pagina en el disco: " << aptPagina->getMemoriaDisco() << endl;
             
+            //eliminarla del disco
+            memoriaDisco.getMemoria()[aptPagina->getMemoriaDisco()] = NULL;
+            
             aptPagina->setMemoriaDisco(-1);
 
             //donde quedo en memoriaReal
@@ -144,8 +145,7 @@ class Commandos {
                 cout << "Esta pagina ahora se encuentra en el disco, en el marco: " << paginasModificadas[0]->getMemoriaDisco() << endl;
             }
 
-            //eliminarla del disco
-
+            
         }
         
 
@@ -169,18 +169,18 @@ class Commandos {
             }
         }
         if(paginasMod.size() > 0) {
-        cout << "Las paginas eliminadas en memoria real fueron :" << endl;
-        for(int i = 0; i < paginasMod.size(); i++){
-            cout << paginasMod[i] << ", ";
-        }
-        cout << endl;
+            cout << "Las paginas eliminadas en memoria real fueron :" << endl;
+            for(int i = 0; i < paginasMod.size(); i++){
+                cout << paginasMod[i] << ", ";
+            }
+            cout << endl;
         }
         if(paginasModDisco.size() > 0){
-        cout << "Las paginas eliminadas en disco fueron :" << endl;
-        for(int i = 0; i < paginasModDisco.size(); i++){
-            cout << paginasModDisco[i] << ", ";
-        }
-        cout << endl;
+            cout << "Las paginas eliminadas en disco fueron :" << endl;
+            for(int i = 0; i < paginasModDisco.size(); i++){
+                cout << paginasModDisco[i] << ", ";
+            }
+            cout << endl;
         }
     }
 
