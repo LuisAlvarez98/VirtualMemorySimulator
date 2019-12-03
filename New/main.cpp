@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <map>
 #include <queue>
 #include "Files.h"
 #include "Commandos.h"
@@ -16,7 +17,8 @@ TablaDePaginas globals::tablaDePaginas;
 queue<Pagina*> globals::queuePaginas;
 Fifo globals::fifo;
 MemoriaDisco globals::memoriaDisco;
-
+int globals::countSwaps = 0;
+map<int,int> globals:: turnaroundMap;
 Commandos commandos;
 
 //Funciones para la llamadas de comandos
@@ -45,6 +47,9 @@ void caseL(int iP){
     cout << "L " << iP << endl;
     cout << "Liberar los marcos de página ocupados por el proceso " << iP << endl;
     commandos.L(iP);
+}
+void caseF(){
+    cout << "Numero total de reemplazos: " << countSwaps << endl;
 }
 void readFile()
 {
@@ -93,7 +98,7 @@ void readFile()
         //End of commands
         case 'F':
             cout << 'F' << endl;
-            cout << "Numero total de reemplazos: " << countSwaps << endl;
+            caseF();
             break;
         //Exit
         case 'E':

@@ -20,6 +20,8 @@ vector<Pagina*> Fifo::eliminarPaginas(int cantidad){
                 memoriaDisco.getMemoria()[i] = pagina;
                 paginasModificadas.push_back(pagina);
                 asignada = true;
+                //Swap out
+                countSwaps++;
             }
         }
         //validar que disco no este lleno.

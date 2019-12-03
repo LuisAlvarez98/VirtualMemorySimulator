@@ -24,7 +24,7 @@ class Commandos {
         if(tablaDePaginas.paginasVacias() < proceso.getNumPaginas()){
             if(algoritmo == FIFO){
             paginasModificadas = fifo.eliminarPaginas(proceso.getNumPaginas() - tablaDePaginas.paginasVacias());
-
+                
             }else if(algoritmo == LRU){
 
                 // LRU.swap() 
@@ -35,7 +35,7 @@ class Commandos {
         //inserta proceso
         for(int i = 0; i < TAMANO_TABLA_PAGINAS && paginasAsignadas < proceso.getNumPaginas(); i++){
             if(tablaDePaginas.paginaVacia(i)){
-
+                
                 //crea una pagina
                 Pagina* pagina = new Pagina(proceso.getProceso(), paginasAsignadas+1, 1, i, -1);
                 //updatear tabla de paginas
@@ -45,6 +45,8 @@ class Commandos {
                 //Se manda la pagina a la queue
                 queuePaginas.push(pagina);
                 paginasAsignadas++;
+                //Swap in
+                countSwaps++;
             }
         }
 
@@ -124,6 +126,8 @@ class Commandos {
                     tablaDePaginas.set(i, aptPagina);
                     //Se manda la pagina a la queue
                     queuePaginas.push(aptPagina);
+                    //Swap in
+                    countSwaps++;
                 }
             }
             //donde estaba
