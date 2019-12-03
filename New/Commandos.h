@@ -147,6 +147,37 @@ class Commandos {
 
     }
 
-
+    void L(int iP){
+        Proceso proceso;
+        vector<int> paginasMod;
+        vector<int> paginasModDisco;
+        proceso = listaProcesos.getProceso(iP);
+        for(int i = 0; i < proceso.getNumPaginas(); i++){
+            if(proceso.getPagina(i)->isMemoriaReal()) {
+                paginasMod.push_back(proceso.getPagina(i)->getMarcoPagina());
+                tablaDePaginas.set(proceso.getPagina(i)->getMarcoPagina(), NULL);
+                proceso.setPagina(i,NULL);
+                //ver si podemos borrar la queue
+            } else {
+                paginasModDisco.push_back(proceso.getPagina(i)->getMemoriaDisco());
+                memoriaDisco.getMemoria()[proceso.getPagina(i)->getMemoriaDisco()] = NULL;
+                proceso.setPagina(i,NULL);
+            }
+        }
+        if(paginasMod.size() > 0) {
+        cout << "Las paginas eliminadas en memoria real fueron :" << endl;
+        for(int i = 0; i < paginasMod.size(); i++){
+            cout << paginasMod[i] << ", ";
+        }
+        cout << endl;
+        }
+        if(paginasModDisco.size() > 0){
+        cout << "Las paginas eliminadas en disco fueron :" << endl;
+        for(int i = 0; i < paginasModDisco.size(); i++){
+            cout << paginasModDisco[i] << ", ";
+        }
+        cout << endl;
+        }
+    }
 
 };

@@ -51,3 +51,6 @@ void Proceso::agregarPagina(Pagina* pagina){
 Pagina* Proceso::getPagina(int pagina){
     return this->paginas[pagina];
 }
+void Proceso::setPagina(int indice, Pagina* pagina){
+    this->paginas[indice] = pagina;
+}

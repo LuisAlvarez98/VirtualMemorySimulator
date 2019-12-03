@@ -42,4 +42,6 @@ public:
     void agregarPagina(Pagina* pagina);
 
     Pagina* getPagina(int pagina);
+
+    void setPagina(int indice, Pagina* pagina);
 };
