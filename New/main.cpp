@@ -13,7 +13,7 @@ using namespace std;
 
 ListaProcesos globals::listaProcesos;
 TablaDePaginas globals::tablaDePaginas;
-queue<Pagina> globals::queuePaginas;
+queue<Pagina*> globals::queuePaginas;
 Fifo globals::fifo;
 MemoriaDisco globals::memoriaDisco;
 

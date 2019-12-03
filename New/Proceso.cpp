@@ -43,11 +43,11 @@ void Proceso::setBytes(int bytes)
     this->numPaginas = ceil(bytes * 1.0/TAMANO_PAGINA);
 }
 
-void Proceso::agregarPagina(Pagina pagina){
+void Proceso::agregarPagina(Pagina* pagina){
 
     this->paginas.push_back(pagina);
 }
 
-Pagina Proceso::getPagina(int pagina){
+Pagina* Proceso::getPagina(int pagina){
     return this->paginas[pagina];
 }

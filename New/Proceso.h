@@ -12,7 +12,7 @@ private:
     int bytes;
     int bitModificacion;
     int numPaginas;
-    vector<Pagina> paginas;
+    vector<Pagina*> paginas;
 public:
     
     Proceso();
@@ -39,7 +39,7 @@ public:
     */
     void setBytes(int bytes);
 
-    void agregarPagina(Pagina pagina);
+    void agregarPagina(Pagina* pagina);
 
-    Pagina getPagina(int pagina);
+    Pagina* getPagina(int pagina);
 };

@@ -16,7 +16,7 @@ namespace globals {
     enum Algoritmo : int {FIFO, LRU} algoritmo;
     
     extern TablaDePaginas tablaDePaginas;
-    extern queue<Pagina> queuePaginas;
+    extern queue<Pagina*> queuePaginas;
     extern ListaProcesos listaProcesos;
     extern Fifo fifo;
     extern MemoriaDisco memoriaDisco;

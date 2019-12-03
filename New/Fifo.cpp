@@ -3,7 +3,7 @@ vector<Pagina*> Fifo::eliminarPaginas(int cantidad){
     vector<Pagina*> paginasModificadas;
 
     for(int i = 0; i < cantidad; i ++){
-        Pagina* pagina = &queuePaginas.front();
+        Pagina* pagina = queuePaginas.front();
         queuePaginas.pop();
         
 
