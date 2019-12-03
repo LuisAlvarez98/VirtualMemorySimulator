@@ -41,6 +41,11 @@ void caseA(int iD, int iP, int iM)
     }
     commandos.A(iD, iP, iM);
 }
+void caseL(int iP){
+    cout << "L " << iP << endl;
+    cout << "Liberar los marcos de página ocupados por el proceso " << iP << endl;
+    commandos.L(iP);
+}
 void readFile()
 {
     Files flag;
@@ -83,7 +88,7 @@ void readFile()
         //Free pages from process
         case 'L':
             file >> iP;
-
+            caseL(iP);
             break;
         //End of commands
         case 'F':
